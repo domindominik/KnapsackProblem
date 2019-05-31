@@ -14,12 +14,13 @@ public class Loadre
             if (knapsack.getKnapsackWeight() < knapsack.getMaxWeight())
             {
                 knapsack.addItem(itemList.get(i));
+                knapsack.setKnapsackWeight(itemList.get(i).getWeight());
             }
             //TODO zatrzymać ładowanie kiedy plecak się zapłeni
-            if (knapsack.isFull())
+            /*if (knapsack.isFull())
             {
                 break;
-            }
+            }*/
         }
     }
 }

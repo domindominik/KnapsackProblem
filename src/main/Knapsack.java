@@ -5,7 +5,7 @@ import java.util.List;
 public class Knapsack
 {
     private List<Item> itemList;
-    boolean isFull;
+    private boolean isFull;
     private int knapsackWeight;
     private int maxWeight;
     // Bellmana method
@@ -26,8 +26,8 @@ public class Knapsack
     //TODO zwrócić true gdy plecak jest pełeny
     public boolean isFull()
     {
-        //if (knapsackWeight >= maxWeight)
-        return isFull;
+        if (knapsackWeight >= maxWeight)
+        return false;
     }
 
     public int getKnapsackWeight()
