@@ -12,7 +12,7 @@ public class Item
         this.value = value;
         this.weight = weight;
         this.name = name;
-        this.profitability = value * 1.0 / weight;
+        this.profitability = (double) value/ weight;
     }
 
     public double getProfitability()

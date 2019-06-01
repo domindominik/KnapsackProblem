@@ -7,8 +7,9 @@ public class Menu
 {
     public static void main(String[] args)
     {
+        Knapsack knapsack = new Knapsack(50);
+
         List<Item> itemList = new ArrayList<>();
-        Knapsack knapsack = new Knapsack(itemList, false, 0, 50);
 
         itemList.add(new Item(18, 8, "Phone"));
         itemList.add(new Item(13, 4, "CD"));
@@ -43,7 +44,7 @@ public class Menu
         }
 
 
-        Loadre loadre = new Loadre();
+        Loadre loadre = new Loadre(knapsack);
         loadre.loadre(itemList);
 
         knapsack.printInfo();

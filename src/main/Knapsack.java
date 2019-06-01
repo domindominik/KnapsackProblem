@@ -1,20 +1,19 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Knapsack
 {
     private List<Item> itemList;
-    private boolean isFull;
     private int knapsackWeight;
     private int maxWeight;
     // Bellmana method
 
-    public Knapsack(List<Item> itemList, boolean isFull, int knapsackWeight, int maxWeight)
+    public Knapsack(int maxWeight)
     {
-        this.itemList = itemList;
-        this.isFull = isFull;
-        this.knapsackWeight = knapsackWeight;
+        this.itemList = new ArrayList<>();
+        this.knapsackWeight = 0;
         this.maxWeight = maxWeight;
     }
 
@@ -23,11 +22,10 @@ public class Knapsack
         return itemList;
     }
 
-    //TODO zwrócić true gdy plecak jest pełeny
+
     public boolean isFull()
     {
-        if (knapsackWeight >= maxWeight)
-        return false;
+        return knapsackWeight >= maxWeight;
     }
 
     public int getKnapsackWeight()
@@ -50,11 +48,6 @@ public class Knapsack
         itemList.add(item);
     }
 
-    public void setFull(boolean full)
-    {
-        isFull = full;
-    }
-
     public void setKnapsackWeight(int knapsackWeight)
     {
         this.knapsackWeight = knapsackWeight;
@@ -67,9 +60,13 @@ public class Knapsack
 
     public void printInfo()
     {
-        System.out.println("Max weight: " + maxWeight +
-                ", Is full: " + isFull +
-                ", Knapsack weight: " + knapsackWeight + "\n");
+        System.out.println("\nMax weight: " + maxWeight +
+                ", Is full: " + isFull() +
+                ", Knapsack weight: " + knapsackWeight );
+        for (Item item: itemList)
+        {
+            item.printInfo();
+        }
     }
 
 }

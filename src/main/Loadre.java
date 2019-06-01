@@ -7,20 +7,28 @@ public class Loadre
     private List<Item> itemList;
     private Knapsack knapsack;
 
+    public Loadre(Knapsack knapsack)
+    {
+        this.knapsack = knapsack;
+    }
+
     public void loadre(List<Item> itemList)
     {
-        for (int i = 0; i < itemList.size(); i++)
+        for (Item item: itemList)
         {
-            if (knapsack.getKnapsackWeight() < knapsack.getMaxWeight())
+            //if (item.getWeight() <= knapsack.getMaxWeight() - knapsack.getKnapsackWeight())
+            if (knapsack.getMaxWeight() >= knapsack.getKnapsackWeight() + item.getWeight())
             {
-                knapsack.addItem(itemList.get(i));
-                knapsack.setKnapsackWeight(itemList.get(i).getWeight());
+                knapsack.addItem(item);
+                knapsack.setKnapsackWeight(item.getWeight() + knapsack.getKnapsackWeight());
             }
-            //TODO zatrzymać ładowanie kiedy plecak się zapłeni
-            /*if (knapsack.isFull())
+            if (knapsack.isFull())
             {
                 break;
-            }*/
+            }
         }
+
+
+
     }
 }
